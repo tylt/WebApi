@@ -4,7 +4,7 @@ using DataAccess.Entities;
 
 namespace DataAccess.Service
 {
-    public class DoctorService:IDoctorService
+    public class DoctorService : IDoctorService
     {
         IUnitOfWork _unitOfWork;
         public DoctorService(IUnitOfWork unitOfWork)

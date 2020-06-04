@@ -48,13 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\IDoctorRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\GenericService.cs" />
+    <Compile Include="Service\IGenericService.cs" />
     <Compile Include="Service\IDoctorService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

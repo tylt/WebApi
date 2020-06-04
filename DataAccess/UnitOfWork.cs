@@ -6,11 +6,13 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork 
     {
         private IDbConnection _connection;
         private IDbTransaction _transaction;
         private IDoctorRepository _doctorRepository;
+       
+
         private bool _disposed;
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
@@ -20,10 +22,15 @@ namespace DataAccess
             _connection.Open();
             _transaction = _connection.BeginTransaction();
         }
-
+        
         public IDoctorRepository DoctorRepository
         {
             get { return _doctorRepository ?? (_doctorRepository = new DoctorRepository(_transaction)); }
+        }
+        
+        public IGenericRepository<TEntity> GenericRepository<TEntity>() where TEntity : class
+        {
+            return new GenericRepository<TEntity>(_transaction);
         }
 
         public void Commit()

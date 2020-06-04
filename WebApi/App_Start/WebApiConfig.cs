@@ -19,6 +19,8 @@ namespace WebApi
             var container = new UnityContainer();
 
             container.RegisterType<IDoctorService, DoctorService>();
+            container.RegisterType(typeof(IGenericService<>), typeof(GenericService<>));
+
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             config.DependencyResolver = new UnityDependencyResolver(container);
 
